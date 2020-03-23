@@ -56,3 +56,15 @@
   font-size: medium;
   color: blue;
 }
+
+.favoriteButton {
+  border: none
+}
+
+.listItems {
+  border: none;
+}
+
+.itemList {
+  list-style-type: none;
+}
