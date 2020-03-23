@@ -16,8 +16,8 @@ class RecipeClicked extends Component {
         <h1>welcome RecipeClicked</h1>
         <button onClick={this.favorite} id={this.props.id}>Favorite</button>
         <h4>Ingredients:</h4>
-        {this.props.ingredients.map(ingredient =>
-          <li>{ingredient.name}</li>
+        {this.props.ingredients.map((ingredient, index) =>
+          <li key={index}>{ingredient.name}</li>
         )}
         {/* {this.props.ingredients.map(ingredient => ingredient.amount.us.map((amount, index) => <p key={index}>{amount.value}</p>))} */}
         <h4>Instructions:</h4>

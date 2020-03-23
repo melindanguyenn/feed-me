@@ -75,7 +75,8 @@ class Favorites extends Component {
     return (
       <div>
         <h1>Your favorite recipes!</h1>
-        <p>pretend this is a recipe name</p>
+        <p>pretend these are recipe names and not numbers :(</p>
+        {this.props.id.map((recipe) => <p>{recipe}</p>)}
         {this.state.hasNotes ? (
           <>
             {this.state.editingNotes ? (
@@ -110,7 +111,7 @@ class Favorites extends Component {
 
 const getStore = reduxState => ({
   reduxState,
-  id: reduxState.recipeId,
+  id: reduxState.favoriteRecipes,
   summary: reduxState.recipeSummary
 }); //accessing stores in index.js to get back search results, creating shortcut for accessing store
 

@@ -40,15 +40,15 @@ function* getRecipe(action) {
 
 function* favoriteRecipe(action) {
   console.log("sending recipe to DB", action.payload);
-  const results = yield axios.post(`api/favorites`, action.payload);
-  console.log("back from DB!", results);
-  yield put({ type: "DISPLAY_FAVORITES", payload: results });
+  // const results = yield axios.post(`api/favorites`, action.payload);
+  // console.log("back from DB!", results);
+  yield put({ type: "DISPLAY_FAVORITES", payload: action.payload });
 }
 
 const favoriteRecipes = (state = [], action) => {
   switch (action.type) {
     case "DISPLAY_FAVORITES":
-      return action.payload;
+      return [...state, action.payload];
     default:
       return state;
   }
@@ -103,7 +103,8 @@ const storeInstance = createStore(
     recipeId,
     recipeSummary,
     recipeIngredients,
-    recipeDirections
+    recipeDirections,
+    favoriteRecipes
   }),
 
   applyMiddleware(sagaMiddleware, logger)
