@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedMe.API", "FeedMe.API\FeedMe.API.csproj", "{AAE43855-D624-4BED-87F5-B5AB37C5E344}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedMe.Repository", "FeedMe.Repository\FeedMe.Repository.csproj", "{1F04D384-EB30-4968-84F8-F75158D7DF87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAE43855-D624-4BED-87F5-B5AB37C5E344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE43855-D624-4BED-87F5-B5AB37C5E344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE43855-D624-4BED-87F5-B5AB37C5E344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE43855-D624-4BED-87F5-B5AB37C5E344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F04D384-EB30-4968-84F8-F75158D7DF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F04D384-EB30-4968-84F8-F75158D7DF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F04D384-EB30-4968-84F8-F75158D7DF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F04D384-EB30-4968-84F8-F75158D7DF87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4BE3B15-0CA7-4770-8057-4CDC84C21636}
+	EndGlobalSection
+EndGlobal

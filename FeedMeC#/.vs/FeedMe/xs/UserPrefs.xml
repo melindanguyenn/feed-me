@@ -1,0 +1,55 @@
+﻿<Properties StartupConfiguration="{AAE43855-D624-4BED-87F5-B5AB37C5E344}|Default">
+  <MonoDevelop.Ide.ItemProperties.FeedMe.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FeedMe.Repository/Dapper/NpgSqlService.cs">
+    <Files>
+      <File FileName="FeedMe.API/HttpServices/RecipeService.cs" Line="30" Column="91" IsPinned="True" />
+      <File FileName="FeedMe.API/App_Start/Startup.cs" Line="32" Column="49" />
+      <File FileName="FeedMe.API/App_Start/SwaggerServiceExtensions.cs" />
+      <File FileName="FeedMe.API/appsettings.json" Line="3" Column="63" />
+      <File FileName="FeedMe.API/AuthenticationService/AuthenticateService.cs" Line="70" Column="15" />
+      <File FileName="FeedMe.API/Controllers/UserController.cs" Line="67" Column="33" />
+      <File FileName="FeedMe.API/App_Start/JwtAuthenticationServiceExtension.cs" Line="16" Column="1" />
+      <File FileName="FeedMe.API/App_Start/Program.cs" Line="16" Column="1" />
+      <File FileName="FeedMe.API/App_Start/Program.cs" Line="16" Column="1" />
+      <File FileName="FeedMe.Repository/Interfaces/IUserRepository.cs" Line="1" Column="1" />
+      <File FileName="FeedMe.Repository/Dapper/NpgSqlService.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FeedMe" expanded="True">
+            <Node name="FeedMe.API" expanded="True">
+              <Node name="App_Start" expanded="True" />
+              <Node name="AuthenticationService" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="HttpServices" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
+            <Node name="FeedMe.Repository" expanded="True">
+              <Node name="Dapper" expanded="True">
+                <Node name="NpgSqlService.cs" selected="True" />
+              </Node>
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="PostgreSQL" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/Controllers/lxsd5tmk.v7p~" relfile="FeedMe.API/Controllers/lxsd5tmk.v7p~" line="29" column="1" />
+      <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/Models/RecipeModels/bt7vmabu.ns1~" relfile="FeedMe.API/Models/RecipeModels/bt7vmabu.ns1~" line="48" column="1" />
+      <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/Models/RecipeModels/raw59bt8.g8d~" relfile="FeedMe.API/Models/RecipeModels/raw59bt8.g8d~" line="53" column="1" />
+      <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/Models/RecipeModels/raw59bt8.g8d~" relfile="FeedMe.API/Models/RecipeModels/raw59bt8.g8d~" line="49" column="1" />
+      <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/Models/RecipeModels/r23hh4e5.6r1~" relfile="FeedMe.API/Models/RecipeModels/r23hh4e5.6r1~" line="53" column="1" />
+      <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/Models/RecipeModels/5sizddii.q8y~" relfile="FeedMe.API/Models/RecipeModels/5sizddii.q8y~" line="57" column="1" />
+      <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/Models/RecipeModels/5sizddii.q8y~" relfile="FeedMe.API/Models/RecipeModels/5sizddii.q8y~" line="48" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,17 @@
+D:/Git/feed-me/FeedMeC#/FeedMe.Repository/bin/Debug/netcoreapp3.0/FeedMe.Repository.deps.json
+D:/Git/feed-me/FeedMeC#/FeedMe.Repository/bin/Debug/netcoreapp3.0/FeedMe.Repository.dll
+D:/Git/feed-me/FeedMeC#/FeedMe.Repository/bin/Debug/netcoreapp3.0/FeedMe.Repository.pdb
+D:/Git/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.csproj.CoreCompileInputs.cache
+D:/Git/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.AssemblyInfoInputs.cache
+D:/Git/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.AssemblyInfo.cs
+D:/Git/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.dll
+D:/Git/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.pdb
+D:/Git/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.csprojAssemblyReference.cache
+/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/bin/Debug/netcoreapp3.0/FeedMe.Repository.deps.json
+/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/bin/Debug/netcoreapp3.0/FeedMe.Repository.dll
+/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/bin/Debug/netcoreapp3.0/FeedMe.Repository.pdb
+/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.csprojAssemblyReference.cache
+/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.AssemblyInfoInputs.cache
+/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.AssemblyInfo.cs
+/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.dll
+/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/obj/Debug/netcoreapp3.0/FeedMe.Repository.pdb
