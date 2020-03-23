@@ -73,14 +73,21 @@ class Favorites extends Component {
     });
     this.props.dispatch({type: "DELETE_NOTES", payload: event.target.id})
   }; //when delete is clicked, state will be reset to its original position
+  goToRecipe = event => {
+    console.log("fav recipe clicked", event.target.id);
+    this.props.dispatch({
+      type: "FETCH_RECIPE",
+      payload: event.target.id
+    });
+  }; //send the id of selected recipe to where "FETCH_RECIPE"
+  //is called to get recipe details
   render() {
     return (
       <div>
         <h1>Your favorite recipes!</h1>
-        <p>pretend these are recipe names and not numbers :(</p>
         {this.props.id.map(id => (
           <li key={id}>
-            {id}
+            <a href="#/recipe" onClick={this.goToRecipe} id={id}>{id}</a>
             {this.state.hasNotes ? (
               <>
                 <br></br>

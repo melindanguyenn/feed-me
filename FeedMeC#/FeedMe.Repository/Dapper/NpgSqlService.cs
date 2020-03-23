@@ -21,7 +21,7 @@ namespace FeedMe.Repository.Dapper
         #endregion
         public int Insert(string sql, object parameters = null)
         {
-            sql += ";SELECT CAST(SCOPE_IDENTITY() as int)";
+            //sql += ";SELECT CAST(SCOPE_IDENTITY() as int)";
 
             using (var dbConnection = Connection)
             {

@@ -101,7 +101,7 @@ const storeInstance = createStore(
     favoriteRecipes
   }),
 
-  applyMiddleware(sagaMiddleware, logger)
+  applyMiddleware(sagaMiddleware)
 ); //accesses store from recipeReducer and allows other components to use it
 
 sagaMiddleware.run(rootSaga);

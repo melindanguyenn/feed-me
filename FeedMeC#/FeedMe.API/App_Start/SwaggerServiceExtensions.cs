@@ -45,7 +45,7 @@ namespace FeedMe.API
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1.0/swagger.json", "Versioned API v1.0");
-
+                c.RoutePrefix = "";
                 //c.DocExpansion("none");
             });
 
