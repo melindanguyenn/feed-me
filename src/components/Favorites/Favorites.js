@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class Favorites extends Component {
   state = {
@@ -19,7 +20,7 @@ class Favorites extends Component {
         hasNotes: true,
         editingNotes: true
       });
-    } else if(this.state.notes === ""){
+    } else if (this.state.notes === "") {
       this.setState({
         hasNotes: false
       });
@@ -36,7 +37,7 @@ class Favorites extends Component {
     } else if (this.state.notes === "") {
       this.setState({
         hasNotes: false
-      })
+      });
     } else {
       this.setState({
         editingNotes: false
@@ -56,7 +57,7 @@ class Favorites extends Component {
         editingNotes: false
       });
     }
-  } //if notes is an empty string, has notes is still false and user edit notes will be true
+  }; //if notes is an empty string, has notes is still false and user edit notes will be true
   // if notes is not an empty string, hasnotes is true and user is done editing notes(false)
   writingNotes = event => {
     this.setState({
@@ -68,8 +69,8 @@ class Favorites extends Component {
       hasNotes: false,
       editingNotes: true,
       notes: ""
-    })
-  }
+    });
+  };
   render() {
     return (
       <div>
@@ -88,11 +89,11 @@ class Favorites extends Component {
                 <button onClick={this.cancelNotes}>Cancel</button>
               </>
             ) : (
-                <>
-                  <h4>Notes:</h4>
+              <>
+                <h4>Notes:</h4>
                 <p>{this.state.notes}</p>
-                  <button onClick={this.editNotes}>Edit</button>
-                  <button onClick={this.deleteNotes}>Delete</button>
+                <button onClick={this.editNotes}>Edit</button>
+                <button onClick={this.deleteNotes}>Delete</button>
               </>
             )}
           </>
@@ -105,6 +106,12 @@ class Favorites extends Component {
     );
   }
 } //if this recipe does not have notes(false), display add notes button. otherwise, if it has notes(true)
-//displaye as <p> until edit button is clicked, clicking save after editing will display updated notes
+//display as <p> until edit button is clicked, clicking save after editing will display updated notes
 
-export default Favorites;
+const getStore = reduxState => ({
+  reduxState,
+  id: reduxState.recipeId,
+  summary: reduxState.recipeSummary
+}); //accessing stores in index.js to get back search results, creating shortcut for accessing store
+
+export default connect(getStore)(Favorites);
