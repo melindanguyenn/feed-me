@@ -13,6 +13,7 @@ import * as serviceWorker from "./serviceWorker";
 function* rootSaga() {
   yield takeEvery("GET_RECIPES", searchRecipes);
   yield takeEvery("FETCH_RECIPE", getRecipe);
+  yield takeEvery("FAVORITE_RECIPE", favoriteRecipe);
 } // search button activates an action from a component, then runs the corresponding function
 
 function* searchRecipes(action) {
@@ -27,11 +28,31 @@ function* searchRecipes(action) {
 function* getRecipe(action) {
   console.log("fetching recipe with id of", action.payload);
   const results = yield axios.get(`/api/recipe/${action.payload}`);
-  console.log("recipedetails", results.data);
+  console.log("recipedetails", results.data.ingredients.ingredients);
+  yield put({ type: "RECIPE_ID", payload: action.payload });
   yield put({ type: "RECIPE_SUMMARY", payload: results.data.summary });
-  yield put({ type: "RECIPE_INGREDIENTS", payload: results.data.ingredients });
+  yield put({
+    type: "RECIPE_INGREDIENTS",
+    payload: results.data.ingredients.ingredients
+  });
   yield put({ type: "RECIPE_DIRECTIONS", payload: results.data.directions });
 } // getting recipe details from server and sending it to recipeDetails
+
+function* favoriteRecipe(action) {
+  console.log("sending recipe to DB", action.payload);
+  const results = yield axios.post(`api/favorites`, action.payload);
+  console.log("back from DB!", results);
+  yield put({ type: "DISPLAY_FAVORITES", payload: results });
+}
+
+const favoriteRecipes = (state = [], action) => {
+  switch (action.type) {
+    case "DISPLAY_FAVORITES":
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
 const recipeReducer = (state = [], action) => {
   switch (action.type) {
@@ -66,11 +87,20 @@ const recipeDirections = (state = [], action) => {
       return state;
   }
 }; //stores directions from getRecipe until called upon
+const recipeId = (state = [], action) => {
+  switch (action.type) {
+    case "RECIPE_ID":
+      return action.payload;
+    default:
+      return state;
+  }
+}; //stores directions from getRecipe until called upon
 
 const sagaMiddleware = createSagaMiddleware();
 const storeInstance = createStore(
   combineReducers({
     recipeReducer,
+    recipeId,
     recipeSummary,
     recipeIngredients,
     recipeDirections

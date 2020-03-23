@@ -26,7 +26,9 @@ namespace FeedMe.Repository.Dapper
             using (var dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<int>(sql, parameters).SingleOrDefault();
+                // return dbConnection.Query<int>(sql, parameters).SingleOrDefault();
+                dbConnection.Execute(sql, parameters);
+                return 0;
             }
         }
         public void Execute(string sql, object parameters = null)
@@ -34,7 +36,7 @@ namespace FeedMe.Repository.Dapper
             using (var dbConnection = Connection)
             {
                dbConnection.Open();
-               dbConnection.Query<int>(sql, parameters).SingleOrDefault();
+               dbConnection.Execute(sql, parameters);
             }
         }
 
