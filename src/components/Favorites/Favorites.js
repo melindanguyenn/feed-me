@@ -28,16 +28,15 @@ class Favorites extends Component {
   }; // if notes are still an empty string, hasNotes will be false
   // if notes is not an empty string, set has notes to true and editing notes to true
   //editing notes will be set to true each time the edit button gets clicked to make it editable
-  saveNotes = () => {
-    console.log("saving notes");
+  saveNotes = event => {
+    console.log("saving notes", event.target.id);
     if (this.state.notes !== this.state.notes) {
       this.setState({
         editingNotes: true
       });
+      this.props.dispatch({ type: "ADD_NOTE", payload: this.state.notes, data: event.target.id })
     } else if (this.state.notes === "") {
-      this.setState({
-        hasNotes: false
-      });
+      alert('Cannot leave notes empty. Try clicking cancel and then deleting your note, if it exists!')
     } else {
       this.setState({
         editingNotes: false
@@ -64,45 +63,54 @@ class Favorites extends Component {
       notes: event.target.value
     });
   }; //sets text from textarea to this.state.notes
-  deleteNotes = () => {
+  deleteNotes = event => {
+    console.log('deleting', event.target.id);
+    
     this.setState({
       hasNotes: false,
       editingNotes: true,
       notes: ""
     });
-  };
+    this.props.dispatch({type: "DELETE_NOTES", payload: event.target.id})
+  }; //when delete is clicked, state will be reset to its original position
   render() {
     return (
       <div>
         <h1>Your favorite recipes!</h1>
         <p>pretend these are recipe names and not numbers :(</p>
-        {this.props.id.map((recipe) => <p>{recipe}</p>)}
-        {this.state.hasNotes ? (
-          <>
-            {this.state.editingNotes ? (
+        {this.props.id.map(id => (
+          <li key={id}>
+            {id}
+            {this.state.hasNotes ? (
               <>
-                <textarea
-                  onChange={this.writingNotes}
-                  value={this.state.notes}
-                />
                 <br></br>
-                <button onClick={this.saveNotes}>Save</button>
-                <button onClick={this.cancelNotes}>Cancel</button>
+                {this.state.editingNotes ? (
+                  <>
+                    <textarea
+                      onChange={this.writingNotes}
+                      value={this.state.notes}
+                      id={id}
+                    />
+                    <br></br>
+                    <button onClick={this.saveNotes} id={id}>Save</button>
+                    <button onClick={this.cancelNotes} id={id}>Cancel</button>
+                  </>
+                ) : (
+                  <>
+                    <h4>Notes:</h4>
+                    <p>{this.state.notes}</p>
+                    <button onClick={this.editNotes} id={id}>Edit</button>
+                    <button onClick={this.deleteNotes} id={id}>Delete</button>
+                  </>
+                )}
               </>
             ) : (
               <>
-                <h4>Notes:</h4>
-                <p>{this.state.notes}</p>
-                <button onClick={this.editNotes}>Edit</button>
-                <button onClick={this.deleteNotes}>Delete</button>
+                <button onClick={this.addNotes} id={id}>+ Add Notes</button>
               </>
             )}
-          </>
-        ) : (
-          <>
-            <button onClick={this.addNotes}>+ Add Notes</button>
-          </>
-        )}
+          </li>
+        ))}
       </div>
     );
   }

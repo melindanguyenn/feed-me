@@ -14,17 +14,14 @@ function* rootSaga() {
   yield takeEvery("GET_RECIPES", searchRecipes);
   yield takeEvery("FETCH_RECIPE", getRecipe);
   yield takeEvery("FAVORITE_RECIPE", favoriteRecipe);
-} // search button activates an action from a component, then runs the corresponding function
-
+} //button activates an action from a component, then runs the corresponding function
 function* searchRecipes(action) {
   console.log("in getRecipe", action.payload);
   const results = yield axios.get(`/api/recipe/search/${action.payload}`);
   console.log("in getRecipe, results", results.data);
-
   yield put({ type: "GET_RECIPE", payload: results.data });
 } //funtion takes action.payload from app.js, sends it to server to fetch data
 //waits for data to return, then sends to where "GET_RECIPE" gets called (recipeReducer)
-
 function* getRecipe(action) {
   console.log("fetching recipe with id of", action.payload);
   const results = yield axios.get(`/api/recipe/${action.payload}`);
@@ -37,13 +34,12 @@ function* getRecipe(action) {
   });
   yield put({ type: "RECIPE_DIRECTIONS", payload: results.data.directions });
 } // getting recipe details from server and sending it to recipeDetails
-
 function* favoriteRecipe(action) {
   console.log("sending recipe to DB", action.payload);
   // const results = yield axios.post(`api/favorites`, action.payload);
   // console.log("back from DB!", results);
   yield put({ type: "DISPLAY_FAVORITES", payload: action.payload });
-}
+} //not connected to DB yet, so i'm just passing action.payload to favoriteRecipes until then
 
 const favoriteRecipes = (state = [], action) => {
   switch (action.type) {
@@ -52,8 +48,7 @@ const favoriteRecipes = (state = [], action) => {
     default:
       return state;
   }
-};
-
+}; //stores all favorited recipes until ready to display
 const recipeReducer = (state = [], action) => {
   switch (action.type) {
     case "GET_RECIPE":
@@ -62,7 +57,6 @@ const recipeReducer = (state = [], action) => {
       return state;
   }
 }; //takes payload from searchRecipes and stores it in state
-
 const recipeSummary = (state = [], action) => {
   switch (action.type) {
     case "RECIPE_SUMMARY":
