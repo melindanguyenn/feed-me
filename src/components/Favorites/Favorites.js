@@ -11,7 +11,7 @@ class Favorites extends Component {
     this.setState({
       hasNotes: true
     });
-  };
+  }; //user clicked add button to add a note, hasnotes will be true to display textarea
   editNotes = () => {
     console.log("edit notes");
     if (this.state.notes !== "") {
@@ -63,6 +63,13 @@ class Favorites extends Component {
       notes: event.target.value
     });
   }; //sets text from textarea to this.state.notes
+  deleteNotes = () => {
+    this.setState({
+      hasNotes: false,
+      editingNotes: true,
+      notes: ""
+    })
+  }
   render() {
     return (
       <div>
@@ -84,7 +91,8 @@ class Favorites extends Component {
                 <>
                   <h4>Notes:</h4>
                 <p>{this.state.notes}</p>
-                <button onClick={this.editNotes}>Edit</button>
+                  <button onClick={this.editNotes}>Edit</button>
+                  <button onClick={this.deleteNotes}>Delete</button>
               </>
             )}
           </>
