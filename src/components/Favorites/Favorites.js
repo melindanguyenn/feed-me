@@ -84,9 +84,9 @@ class Favorites extends Component {
   render() {
     return (
       <div>
-        <h1>Your favorite recipes!</h1>
+        <h2>Your favorite recipes!</h2>
         {this.props.id.map(id => (
-          <li key={id}>
+          <li key={id} className="listFavorites">
             <a href="#/recipe" onClick={this.goToRecipe} id={id}>{id}</a>
             {this.state.hasNotes ? (
               <>

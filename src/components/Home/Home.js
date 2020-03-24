@@ -17,7 +17,7 @@ class Home extends Component {
   addIngredient = () => {
     console.log("adding", this.state.temp);
     if (this.state.temp === "") {
-      alert("Please enter an ingredient!")
+      alert("Please enter an ingredient!");
     } else {
       this.setState({
         ingredients: [...this.state.ingredients, this.state.temp]
@@ -30,7 +30,7 @@ class Home extends Component {
   runSearch = () => {
     console.log("searching for recipes with", this.state.ingredients);
     if (this.state.ingredients.length === 0) {
-      alert("Please add an ingredient!")
+      alert("Please add an ingredient!");
     } else {
       this.props.dispatch({
         type: "GET_RECIPES",
@@ -71,7 +71,7 @@ class Home extends Component {
             {ingredient}
             <button className="listItems" onClick={this.delete}>
               <svg
-                class="bi bi-x-circle"
+                className="bi bi-x-circle"
                 width="1em"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -79,19 +79,19 @@ class Home extends Component {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
               </svg>
             </button>

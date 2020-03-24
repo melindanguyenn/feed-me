@@ -13,11 +13,15 @@ class RecipeClicked extends Component {
   render() {
     return (
       <div>
-        <h1>
-          {this.props.summary.title}{" "}
-          <button className="favoriteButton" onClick={this.favorite} id={this.props.id}>
+        <h2>
+          {this.props.summary.title}
+          <button
+            id={this.props.id}
+            className="favoriteButton"
+            onClick={this.favorite}
+          >
             <svg
-              class="bi bi-heart"
+              className="bi bi-heart"
               width="2em"
               height="2em"
               viewBox="0 0 16 16"
@@ -25,13 +29,13 @@ class RecipeClicked extends Component {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 01.176-.17C12.72-3.042 23.333 4.867 8 15z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
             </svg>
           </button>
-        </h1>
+        </h2>
 
         <h4>Ingredients:</h4>
         {this.props.ingredients.map((ingredient, index) => (
@@ -42,7 +46,7 @@ class RecipeClicked extends Component {
         {this.props.directions.map(steps =>
           steps.steps.map((step, index) => (
             <p key={index}>
-              {step.number}. {step.step}
+              <b>{step.number}.</b> {step.step}
             </p>
           ))
         )}
