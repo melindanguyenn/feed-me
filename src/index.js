@@ -14,6 +14,7 @@ function* rootSaga() {
   yield takeEvery("GET_RECIPES", searchRecipes);
   yield takeEvery("FETCH_RECIPE", getRecipe);
   yield takeEvery("FAVORITE_RECIPE", favoriteRecipe);
+  yield takeEvery("ADD_NOTE", favoriteRecipeNotes);
 } //button activates an action from a component, then runs the corresponding function
 function* searchRecipes(action) {
   console.log("in getRecipe", action.payload);
@@ -36,10 +37,31 @@ function* getRecipe(action) {
 } // getting recipe details from server and sending it to recipeDetails
 function* favoriteRecipe(action) {
   console.log("sending recipe to DB", action.payload);
-  // const results = yield axios.post(`api/favorites`, action.payload);
-  // console.log("back from DB!", results);
+  let userId = 1;
+  let favoriteDto = {
+    favoritedUrl: action.payload,
+    userId: userId
+  };
+  yield axios.post(`api/favorite`, favoriteDto);
+  console.log("back from DB!");
   yield put({ type: "DISPLAY_FAVORITES", payload: action.payload });
 } //not connected to DB yet, so i'm just passing action.payload to favoriteRecipes until then
+
+function* favoriteRecipeNotes(action) {
+  console.log("adding note");
+  yield axios.post(`api/notes`, action.payload);
+  console.log("added note");
+  yield put({ type: "RECIPE_NOTES", payload: action.payload });
+}
+
+const recipeNotes = (state = '', action) => {
+  switch (action.type) {
+    case "RECIPE_NOTES":
+      return action.payload;
+    default:
+      return state;
+  }
+}
 
 const favoriteRecipes = (state = [], action) => {
   switch (action.type) {
@@ -98,7 +120,8 @@ const storeInstance = createStore(
     recipeSummary,
     recipeIngredients,
     recipeDirections,
-    favoriteRecipes
+    favoriteRecipes,
+    recipeNotes
   }),
 
   applyMiddleware(sagaMiddleware)

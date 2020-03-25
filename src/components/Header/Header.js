@@ -7,6 +7,7 @@ class Header extends Component {
         <h1>
           <svg
             className="bi bi-egg-fried"
+            color="black"
             width="1em"
             height="1em"
             viewBox="0 0 16 16"

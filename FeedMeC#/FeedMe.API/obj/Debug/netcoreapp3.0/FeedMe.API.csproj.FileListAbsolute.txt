@@ -221,3 +221,4 @@ D:/Git/feed-me/FeedMeC#/FeedMe.API/obj/Debug/netcoreapp3.0/FeedMe.API.genruntime
 /Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/obj/Debug/netcoreapp3.0/FeedMe.API.csproj.CopyComplete
 /Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/obj/Debug/netcoreapp3.0/FeedMe.API.dll
 /Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/obj/Debug/netcoreapp3.0/FeedMe.API.pdb
+/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/bin/Debug/netcoreapp3.0/FeedMe.API.xml

@@ -52,6 +52,17 @@
   list-style-type: none;
   display: inline-block;
   margin: 1em;
+  opacity: .75;
+  border: white;
+}
+
+.recipeList li:hover {
+  list-style-type: none;
+  display: inline-block;
+  margin: 1em;
+  opacity: 1;
+  border:1px black 350 350;
+  
 }
 
 .signUpLogin {

@@ -17,8 +17,9 @@ class SearchResult extends Component {
           {this.props.reduxState.recipeReducer.map((recipe, index) => (
             <li key={index} id={index}>
               <a href="#/recipe" onClick={this.goToRecipe} id={recipe.id}>
+              <h4 id={recipe.id}>{recipe.title}</h4>
+
                 <img src={recipe.image} alt="recipe dish" id={recipe.id} />
-                <h4 id={recipe.id}>{recipe.title}</h4>
               </a>
             </li>
           ))}

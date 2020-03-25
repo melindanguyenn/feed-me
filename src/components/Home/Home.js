@@ -72,6 +72,7 @@ class Home extends Component {
             <button className="listItems" onClick={this.delete}>
               <svg
                 className="bi bi-x-circle"
+                color="black"
                 width="1em"
                 height="1em"
                 viewBox="0 0 16 16"

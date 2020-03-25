@@ -1,25 +1,10 @@
 ﻿<Properties StartupConfiguration="{AAE43855-D624-4BED-87F5-B5AB37C5E344}|Default">
   <MonoDevelop.Ide.ItemProperties.FeedMe.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FeedMe.API/HttpServices/RecipeService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FeedMe.API/AuthenticationService/AuthenticateService.cs">
     <Files>
-      <File FileName="FeedMe.API/HttpServices/RecipeService.cs" Line="30" Column="90" IsPinned="True" />
-      <File FileName="FeedMe.API/App_Start/Startup.cs" Line="73" Column="22" />
-      <File FileName="FeedMe.API/App_Start/SwaggerServiceExtensions.cs" Line="29" Column="25" />
-      <File FileName="FeedMe.API/appsettings.json" Line="16" Column="26" />
-      <File FileName="FeedMe.API/AuthenticationService/AuthenticateService.cs" Line="70" Column="15" />
-      <File FileName="FeedMe.API/Controllers/UserController.cs" Line="67" Column="33" />
-      <File FileName="FeedMe.API/App_Start/JwtAuthenticationServiceExtension.cs" Line="16" Column="1" />
-      <File FileName="FeedMe.API/App_Start/Program.cs" Line="16" Column="1" />
-      <File FileName="FeedMe.API/App_Start/Program.cs" Line="16" Column="1" />
-      <File FileName="FeedMe.Repository/Interfaces/IUserRepository.cs" Line="1" Column="1" />
-      <File FileName="FeedMe.Repository/Dapper/NpgSqlService.cs" Line="24" Column="15" />
-      <File FileName="FeedMe.Repository/PostgreSQL/FavoriteRepository.cs" Line="1" Column="1" />
-      <File FileName="FeedMe.API/Controllers/RecipeController.cs" Line="1" Column="1" />
-      <File FileName="FeedMe.API/Models/RecipeModels/RecipeInformationModel.cs" Line="1" Column="1" />
-      <File FileName="FeedMe.API/Controllers/FavoriteController.cs" Line="1" Column="1" />
-      <File FileName="FeedMe.API/Controllers/DefaultController.cs" Line="1" Column="1" />
-      <File FileName="FeedMe.API/AuthenticationService/IAuthenticateService.cs" Line="1" Column="1" />
-      <File FileName="FeedMe.API/HttpServices/IRecipeService.cs" Line="1" Column="1" />
+      <File FileName="FeedMe.API/AuthenticationService/AuthenticateService.cs" Line="77" Column="1" />
+      <File FileName="FeedMe.API/HttpServices/RecipeService.cs" />
+      <File FileName="FeedMe.API/Controllers/RecipeController.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -27,14 +12,17 @@
           <Node name="FeedMe" expanded="True">
             <Node name="FeedMe.API" expanded="True">
               <Node name="App_Start" expanded="True" />
-              <Node name="AuthenticationService" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="HttpServices" expanded="True">
-                <Node name="RecipeService.cs" selected="True" />
+              <Node name="AuthenticationService" expanded="True">
+                <Node name="AuthenticateService.cs" selected="True" />
               </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="HttpServices" expanded="True" />
               <Node name="Models" expanded="True">
+                <Node name="ControllerDto" expanded="True" />
                 <Node name="RecipeModels" expanded="True" />
-                <Node name="UserModels" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True">
+                <Node name="PublishProfiles" expanded="True" />
               </Node>
             </Node>
             <Node name="FeedMe.Repository" expanded="True">

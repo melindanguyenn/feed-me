@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FeedMe.API</name>
+    </assembly>
+    <members>
+        <member name="M:FeedMe.API.Controllers.NotesController.Put(System.Int32,System.String)">
+            <summary>
+            update note by id
+            </summary>
+        </member>
+        <member name="M:FeedMe.API.Controllers.NotesController.Delete(System.Int32)">
+            <summary>
+            delete note
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:FeedMe.API.Controllers.NotesController.Post(FeedMe.API.Models.ControllerDto.NotesDto)" -->
+        <member name="P:FeedMe.API.Models.ControllerDto.NotesDto.notes">
+            <summary>
+            note about a recipe
+            </summary>
+        </member>
+        <member name="P:FeedMe.API.Models.ControllerDto.NotesDto.favorited_id">
+            <summary>
+            id of recipe this note is for
+            </summary>
+        </member>
+        <member name="P:FeedMe.API.Models.ControllerDto.NotesDto.user_id">
+            <summary>
+            id of user writing this note
+            </summary>
+        </member>
+    </members>
+</doc>

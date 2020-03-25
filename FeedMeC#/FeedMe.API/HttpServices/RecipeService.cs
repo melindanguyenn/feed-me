@@ -27,7 +27,7 @@ namespace FeedMe.API.HttpServices
 		}
 		public async Task<string> SearchAsync(string parameters)
 		{
-			var requestUri = BuildRequestUri($"findByIngredients?ingredients={parameters}&number=5&");
+			var requestUri = BuildRequestUri($"findByIngredients?ingredients={parameters}&number=6&");
 
 			var response = await _httpClient.GetAsync(requestUri);
 			response.EnsureSuccessStatusCode();
