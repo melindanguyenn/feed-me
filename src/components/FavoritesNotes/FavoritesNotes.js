@@ -29,23 +29,26 @@ class FavoritesNotes extends Component {
   // if notes is not an empty string, set has notes to true and editing notes to true
   //editing notes will be set to true each time the edit button gets clicked to make it editable
   saveNotes = event => {
-    console.log("saving notes", event.target.id);
+    console.log("saving notes", event.target.id, this.state.notes);
     if (this.state.notes !== this.state.notes) {
+      console.log('opt1');
       this.setState({
         editingNotes: true
+      });
+    } else if (this.state.notes === "") {
+      console.log('opt2');
+      alert(
+        "Cannot leave notes empty. Try clicking cancel and then deleting your note, if it exists!"
+      );
+    } else {
+      console.log('opt3');
+      this.setState({
+        editingNotes: false
       });
       this.props.dispatch({
         type: "ADD_NOTE",
         payload: this.state.notes,
         data: event.target.id
-      });
-    } else if (this.state.notes === "") {
-      alert(
-        "Cannot leave notes empty. Try clicking cancel and then deleting your note, if it exists!"
-      );
-    } else {
-      this.setState({
-        editingNotes: false
       });
     }
   }; // if notes doesn't equal notes, set editing boolean to true (user is editing)
@@ -77,7 +80,7 @@ class FavoritesNotes extends Component {
       editingNotes: true,
       notes: ""
     });
-    this.props.dispatch({ type: "DELETE_NOTES", payload: event.target.id });
+    this.props.dispatch({ type: "DELETE_NOTE", payload: event.target.id });
   }; //when delete is clicked, state will be reset to its original position
   render() {
     return (
@@ -88,9 +91,9 @@ class FavoritesNotes extends Component {
             {this.state.editingNotes ? (
               <>
                 <textarea
+                  id={this.props.id}
                   onChange={this.writingNotes}
                   value={this.state.notes}
-                  id={this.props.id}
                 />
                 <br></br>
                 <button onClick={this.saveNotes} id={this.props.id}>

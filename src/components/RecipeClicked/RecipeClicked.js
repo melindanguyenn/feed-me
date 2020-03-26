@@ -27,6 +27,7 @@ class RecipeClicked extends Component {
               viewBox="0 0 16 16"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
+              id={this.props.id}
             >
               <path
                 fillRule="evenodd"
@@ -39,7 +40,16 @@ class RecipeClicked extends Component {
 
         <h4>Ingredients:</h4>
         {this.props.ingredients.map((ingredient, index) => (
-          <li key={index}>{ingredient.name}</li>
+          <li key={index}>
+            {ingredient.name}
+            {/* {ingredient.amount.map(amount =>
+              amount.us.map((amount, index) => (
+                <p key={index}>
+                  {amount.value} {amount.unit}
+                </p>
+              ))
+            )} */}
+          </li>
         ))}
         {/* {this.props.ingredients.map(ingredient => ingredient.amount.us.map((amount, index) => <p key={index}>{amount.value}</p>))} */}
         <h4>Instructions:</h4>

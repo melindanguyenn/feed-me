@@ -15,6 +15,8 @@ function* rootSaga() {
   yield takeEvery("FETCH_RECIPE", getRecipe);
   yield takeEvery("FAVORITE_RECIPE", favoriteRecipe);
   yield takeEvery("ADD_NOTE", favoriteRecipeNotes);
+  yield takeEvery("DELETE_NOTE", deleteFavoriteRecipeNotes);
+
 } //button activates an action from a component, then runs the corresponding function
 function* searchRecipes(action) {
   console.log("in getRecipe", action.payload);
@@ -23,6 +25,7 @@ function* searchRecipes(action) {
   yield put({ type: "GET_RECIPE", payload: results.data });
 } //funtion takes action.payload from app.js, sends it to server to fetch data
 //waits for data to return, then sends to where "GET_RECIPE" gets called (recipeReducer)
+
 function* getRecipe(action) {
   console.log("fetching recipe with id of", action.payload);
   const results = yield axios.get(`/api/recipe/${action.payload}`);
@@ -35,6 +38,7 @@ function* getRecipe(action) {
   });
   yield put({ type: "RECIPE_DIRECTIONS", payload: results.data.directions });
 } // getting recipe details from server and sending it to recipeDetails
+
 function* favoriteRecipe(action) {
   console.log("sending recipe to DB", action.payload);
   let userId = 1;
@@ -49,10 +53,21 @@ function* favoriteRecipe(action) {
 
 function* favoriteRecipeNotes(action) {
   console.log("adding note");
-  yield axios.post(`api/notes`, action.payload);
+  let favoriteDto = {
+    favorited_id: 1,
+    notes: action.payload,
+    user_id: 1
+  };
+  yield axios.post(`api/notes`, favoriteDto);
   console.log("added note");
   yield put({ type: "RECIPE_NOTES", payload: action.payload });
-}
+} //hardcode favorite_id as the next one (+1), if none set to 1
+
+function* deleteFavoriteRecipeNotes(action) {
+  console.log('deleting note');
+  yield axios.delete(`api/notes/${action.payload}`);
+  console.log('note deleted');
+} //hardcode the note's id to delete, if none set to 1
 
 const recipeNotes = (state = '', action) => {
   switch (action.type) {
@@ -71,14 +86,6 @@ const favoriteRecipes = (state = [], action) => {
       return state;
   }
 }; //stores all favorited recipes until ready to display
-const recipeReducer = (state = [], action) => {
-  switch (action.type) {
-    case "GET_RECIPE":
-      return action.payload;
-    default:
-      return state;
-  }
-}; //takes payload from searchRecipes and stores it in state
 const recipeSummary = (state = [], action) => {
   switch (action.type) {
     case "RECIPE_SUMMARY":
@@ -111,6 +118,14 @@ const recipeId = (state = [], action) => {
       return state;
   }
 }; //stores directions from getRecipe until called upon
+const recipeReducer = (state = [], action) => {
+  switch (action.type) {
+    case "GET_RECIPE":
+      return action.payload;
+    default:
+      return state;
+  }
+}; //takes payload from searchRecipes and stores it in state
 
 const sagaMiddleware = createSagaMiddleware();
 const storeInstance = createStore(
