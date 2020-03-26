@@ -32,7 +32,7 @@ CREATE TABLE "notes" (
 );
 ```
 
-You'll also need an API Key from spoonacular [https://spoonacular.com/food-api] to replace the current key in `server/routes/recipe.router.js` to get any recipes to display.
+You'll also need an API Key from spoonacular [https://spoonacular.com/food-api] to insert the key in `feed-me/FeedMeC#/FeedMe.API/appsettings.json` to get any recipes to display.
 
 ## Technologies Used
 

@@ -1,32 +1,37 @@
 ﻿<Properties StartupConfiguration="{AAE43855-D624-4BED-87F5-B5AB37C5E344}|Default">
   <MonoDevelop.Ide.ItemProperties.FeedMe.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FeedMe.API/Controllers/RecipeController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FeedMe.API/appsettings.json">
     <Files>
       <File FileName="FeedMe.API/AuthenticationService/AuthenticateService.cs" Line="77" Column="1" />
-      <File FileName="FeedMe.API/HttpServices/RecipeService.cs" />
+      <File FileName="FeedMe.API/HttpServices/RecipeService.cs" Line="1" Column="1" />
       <File FileName="FeedMe.API/Controllers/RecipeController.cs" Line="37" Column="4" />
       <File FileName="FeedMe.Repository/Interfaces/IFavoriteRepository.cs" Line="1" Column="1" />
       <File FileName="FeedMe.Repository/PostgreSQL/NotesRepository.cs" Line="1" Column="1" />
       <File FileName="FeedMe.Repository/Models/NotesModel.cs" Line="1" Column="1" />
       <File FileName="FeedMe.Repository/Interfaces/INotesRepository.cs" Line="1" Column="1" />
-      <File FileName="FeedMe.API/Models/ControllerDto/NotesDto.cs" Line="1" Column="1" />
+      <File FileName="FeedMe.API/Models/ControllerDto/NotesDto.cs" Line="13" Column="20" />
       <File FileName="FeedMe.API/Controllers/NotesController.cs" Line="1" Column="1" />
       <File FileName="FeedMe.API/Models/RecipeModels/RecipeInformationModel.cs" Line="1" Column="1" />
       <File FileName="FeedMe.Repository/PostgreSQL/FavoriteRepository.cs" Line="1" Column="1" />
       <File FileName="FeedMe.Repository/Models/FavoriteModel.cs" Line="1" Column="1" />
       <File FileName="FeedMe.API/Controllers/FavoriteController.cs" Line="1" Column="1" />
+      <File FileName="FeedMe.API/HttpServices/IRecipeService.cs" Line="1" Column="1" />
+      <File FileName="FeedMe.API/appsettings.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FeedMe" expanded="True">
             <Node name="FeedMe.API" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="RecipeController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="HttpServices" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="ControllerDto" expanded="True" />
+                <Node name="RecipeModels" expanded="True" />
+                <Node name="UserModels" expanded="True" />
               </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
             </Node>
             <Node name="FeedMe.Repository" expanded="True">
               <Node name="Interfaces" expanded="True" />
