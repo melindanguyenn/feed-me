@@ -7,13 +7,7 @@ This is a web application created to help find a recipe when you're on a budget 
 
 ## Setup
 
-Run the following commands in ternimal. The server and client will need two separate tabs and will automatically update after any changes.
-
-```
-npm install
-npm run server
-npm run client
-```
+Install the "C#" extension in Visual Studio Code, then do a `npm install` in the terminal. Go to VS Code's debugger and click run. Once that is running, return to the terminal and run `npm run client`.
 
 Create the following tables in a database named `feedMe`:
 
@@ -43,8 +37,8 @@ You'll also need an API Key from spoonacular [https://spoonacular.com/food-api] 
 ## Technologies Used
 
 - Javascript
-- Node
-- Express
+- C#
+- Dapper
 - React
 - Redux
 - Sagas

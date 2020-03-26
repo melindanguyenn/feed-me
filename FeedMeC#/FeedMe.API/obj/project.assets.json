@@ -6708,7 +6708,7 @@
       "outputPath": "/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/melindanguyen/.config/NuGet/NuGet.Config"
+        "/Users/melindanguyen/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"

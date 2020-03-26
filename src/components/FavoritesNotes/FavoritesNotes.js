@@ -50,6 +50,9 @@ class FavoritesNotes extends Component {
         payload: this.state.notes,
         data: event.target.id
       });
+
+      //if editnotes = true edit
+      //else if editnotes = false add
     }
   }; // if notes doesn't equal notes, set editing boolean to true (user is editing)
   // if notes are the same, user is not editing, therefore, boolean is false
