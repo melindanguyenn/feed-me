@@ -80,6 +80,42 @@ namespace FeedMe.API.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// create new or update existing
+        /// </summary
+        [HttpPost("Upsert")]
+        public IActionResult Upsert([FromBody]NotesDto notesDto)
+        {
+            try
+            {
+
+                var note = new NotesModel()
+                {
+                    id=notesDto.id,
+                    notes = notesDto.notes,
+                    favorited_id = notesDto.favorited_id,
+                    user_id = notesDto.user_id
+                };
+
+                if (notesDto.id == 0)
+                {
+                    _notesRepository.Insert(note);
+                }
+                else
+                {
+                    _notesRepository.Update(note.id, notesDto.notes);
+                }
+
+               
+            }
+            catch (Exception ex)
+            {
+                HandleError(ex);
+            }
+
+            return Ok();
+        }
+
         private void HandleError(Exception ex)
         {
             throw new Exception(ex.Message);

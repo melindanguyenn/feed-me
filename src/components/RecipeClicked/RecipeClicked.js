@@ -12,7 +12,7 @@ class RecipeClicked extends Component {
 
   render() {
     return (
-      <div>
+      <div className="recipeDetails">
         <h2>
           {this.props.summary.title}
           <button

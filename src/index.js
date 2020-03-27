@@ -14,9 +14,10 @@ function* rootSaga() {
   yield takeEvery("GET_RECIPES", searchRecipes);
   yield takeEvery("FETCH_RECIPE", getRecipe);
   yield takeEvery("FAVORITE_RECIPE", favoriteRecipe);
-  yield takeEvery("ADD_NOTE", favoriteRecipeNotes);
+  yield takeEvery("FETCH_FAVORITES", getFavorites)
+  yield takeEvery("ADD_NOTE", addFavoriteRecipeNotes);
+  yield takeEvery("EDIT_NOTE", editFavoriteRecipeNotes);
   yield takeEvery("DELETE_NOTE", deleteFavoriteRecipeNotes);
-
 } //button activates an action from a component, then runs the corresponding function
 function* searchRecipes(action) {
   console.log("in getRecipe", action.payload);
@@ -51,10 +52,17 @@ function* favoriteRecipe(action) {
   yield put({ type: "DISPLAY_FAVORITES", payload: action.payload });
 } //not connected to DB yet, so i'm just passing action.payload to favoriteRecipes until then
 
-function* favoriteRecipeNotes(action) {
+function* getFavorites() {
+  console.log("fetching favorites");
+  const results = yield axios.get(`api/favorite`);
+  console.log('favorites are', results);
+  yield put ({type: "LIST_FAVORITES", payload: results.data})
+}
+
+function* addFavoriteRecipeNotes(action) {
   console.log("adding note");
   let favoriteDto = {
-    favorited_id: 1,
+    favorited_id: 108,
     notes: action.payload,
     user_id: 1
   };
@@ -62,6 +70,12 @@ function* favoriteRecipeNotes(action) {
   console.log("added note");
   yield put({ type: "RECIPE_NOTES", payload: action.payload });
 } //hardcode favorite_id as the next one (+1), if none set to 1
+
+function* editFavoriteRecipeNotes(action) {
+  console.log("editing note");
+  yield axios.put(`api/notes/${action.data}`, action.payload);
+  console.log('note updated');
+}//action.data should be serial id of note in db
 
 function* deleteFavoriteRecipeNotes(action) {
   console.log('deleting note');
@@ -72,6 +86,15 @@ function* deleteFavoriteRecipeNotes(action) {
 const recipeNotes = (state = '', action) => {
   switch (action.type) {
     case "RECIPE_NOTES":
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
+const fetchFavorites = (state = [], action) => {
+  switch (action.type) {
+    case "LIST_FAVORITES":
       return action.payload;
     default:
       return state;
@@ -136,6 +159,7 @@ const storeInstance = createStore(
     recipeIngredients,
     recipeDirections,
     favoriteRecipes,
+    fetchFavorites,
     recipeNotes
   }),
 

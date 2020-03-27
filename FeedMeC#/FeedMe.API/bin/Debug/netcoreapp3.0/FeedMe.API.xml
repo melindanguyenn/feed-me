@@ -15,6 +15,12 @@
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "M:FeedMe.API.Controllers.NotesController.Post(FeedMe.API.Models.ControllerDto.NotesDto)" -->
+        <!-- Badly formed XML comment ignored for member "M:FeedMe.API.Controllers.NotesController.Upsert(FeedMe.API.Models.ControllerDto.NotesDto)" -->
+        <member name="P:FeedMe.API.Models.ControllerDto.NotesDto.id">
+            <summary>
+            notes unique id 
+            </summary>
+        </member>
         <member name="P:FeedMe.API.Models.ControllerDto.NotesDto.notes">
             <summary>
             note about a recipe

@@ -3,69 +3,84 @@ import { connect } from "react-redux";
 
 class FavoritesNotes extends Component {
   state = {
-    hasNotes: false,
-    editingNotes: true,
+    addingNotes: false,
+    hasNotes: true,
+    editingNotes: false,
     notes: ""
   };
   addNotes = () => {
     console.log("add notes");
     this.setState({
-      hasNotes: true
+      addingNotes: true
     });
-  }; //user clicked add button to add a note, hasnotes will be true to display textarea
+  }; //user clicked add button to add a note, addingNotes will be true to display textarea
   editNotes = () => {
     console.log("edit notes");
     if (this.state.notes !== "") {
       this.setState({
+        addingNotes: true,
         hasNotes: true,
         editingNotes: true
       });
     } else if (this.state.notes === "") {
       this.setState({
-        hasNotes: false
+        addingNotes: false
       });
     }
-  }; // if notes are still an empty string, hasNotes will be false
+  }; // if notes are still an empty string, addingNotes will be false
   // if notes is not an empty string, set has notes to true and editing notes to true
   //editing notes will be set to true each time the edit button gets clicked to make it editable
   saveNotes = event => {
     console.log("saving notes", event.target.id, this.state.notes);
-    if (this.state.notes !== this.state.notes) {
-      console.log('opt1');
-      this.setState({
-        editingNotes: true
-      });
-    } else if (this.state.notes === "") {
-      console.log('opt2');
+    if (this.state.notes === "") {
+      console.log("opt1");
       alert(
         "Cannot leave notes empty. Try clicking cancel and then deleting your note, if it exists!"
       );
     } else {
-      console.log('opt3');
+      console.log("opt2");
       this.setState({
-        editingNotes: false
+        hasNotes: false
       });
       this.props.dispatch({
         type: "ADD_NOTE",
         payload: this.state.notes,
         data: event.target.id
       });
-
-      //if editnotes = true edit
-      //else if editnotes = false add
     }
-  }; // if notes doesn't equal notes, set editing boolean to true (user is editing)
-  // if notes are the same, user is not editing, therefore, boolean is false
+  }; // if notes is empty, alert to cancel and delete note
+  // otherwise, send note to DB to be created
+  editingNotes = event => {
+    console.log("editing notes", event.target.id, this.state.notes);
+    if (this.state.notes === "") {
+      console.log("opt1");
+      alert(
+        "Cannot leave notes empty. Try clicking cancel and then deleting your note!"
+      );
+    } else {
+      console.log("opt2");
+      this.setState({
+        editNotes: true,
+        hasNotes: false
+      });
+      this.props.dispatch({
+        type: "EDIT_NOTE",
+        payload: this.state.notes,
+        data: event.target.id
+      });
+    }
+  }; //if note field is left empty, alert to delete instead
+  //otherwise, send updated notes to DB
   cancelNotes = () => {
     if (this.state.notes === "") {
       this.setState({
-        hasNotes: false,
-        editingNotes: true
+        addingNotes: false,
+        hasNotes: true
       });
     } else {
       this.setState({
-        hasNotes: true,
-        editingNotes: false
+        addingNotes: true,
+        hasNotes: false
       });
     }
   }; //if notes is an empty string, has notes is still false and user edit notes will be true
@@ -79,8 +94,9 @@ class FavoritesNotes extends Component {
     console.log("deleting", event.target.id);
 
     this.setState({
-      hasNotes: false,
-      editingNotes: true,
+      addingNotes: false,
+      hasNotes: true,
+      editingNotes: false,
       notes: ""
     });
     this.props.dispatch({ type: "DELETE_NOTE", payload: event.target.id });
@@ -88,23 +104,42 @@ class FavoritesNotes extends Component {
   render() {
     return (
       <div>
-        {this.state.hasNotes ? (
+        {this.state.addingNotes ? (
           <>
             <br></br>
-            {this.state.editingNotes ? (
+            {this.state.hasNotes ? (
               <>
-                <textarea
-                  id={this.props.id}
-                  onChange={this.writingNotes}
-                  value={this.state.notes}
-                />
-                <br></br>
-                <button onClick={this.saveNotes} id={this.props.id}>
-                  Save
-                </button>
-                <button onClick={this.cancelNotes} id={this.props.id}>
-                  Cancel
-                </button>
+                {this.state.editingNotes ? (
+                  <>
+                    <textarea
+                      id={this.props.id}
+                      onChange={this.writingNotes}
+                      value={this.state.notes}
+                    />
+                    <br></br>
+                    <button onClick={this.editingNotes} id={this.props.id}>
+                      Save
+                    </button>
+                    <button onClick={this.cancelNotes} id={this.props.id}>
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <textarea
+                      id={this.props.id}
+                      onChange={this.writingNotes}
+                      value={this.state.notes}
+                    />
+                    <br></br>
+                    <button onClick={this.saveNotes} id={this.props.id}>
+                      Save
+                    </button>
+                    <button onClick={this.cancelNotes} id={this.props.id}>
+                      Cancel
+                    </button>
+                  </>
+                )}
               </>
             ) : (
               <>

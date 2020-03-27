@@ -4,6 +4,10 @@ namespace FeedMe.API.Models.ControllerDto
     public class NotesDto
     {
         /// <summary>
+        /// notes unique id 
+        /// </summary>
+        public int id { get; set; }
+        /// <summary>
         /// note about a recipe
         /// </summary>
         public string notes { get; set; }

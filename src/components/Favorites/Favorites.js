@@ -3,6 +3,16 @@ import { connect } from "react-redux";
 import FavoritesNotes from "../FavoritesNotes/FavoritesNotes";
 
 class Favorites extends Component {
+  // componentDidMount() {
+  //   this.getFavorites();
+  // }
+
+  // getFavorites() {
+  //   this.props.dispatch({
+  //     type: "FETCH_FAVORITES"
+  //   })
+  // }
+
   goToRecipe = event => {
     console.log("fav recipe clicked", event.target.id);
     this.props.dispatch({
@@ -18,7 +28,7 @@ class Favorites extends Component {
         {this.props.id.map(id => (
           <li key={id} className="listFavorites">
             <a href="#/recipe" onClick={this.goToRecipe} id={id}>
-              {id}
+              {this.props.summary.title}
             </a>
             <FavoritesNotes id={this.props.id} />
           </li>
