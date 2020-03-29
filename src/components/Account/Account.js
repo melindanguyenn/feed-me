@@ -29,9 +29,9 @@ class Account extends Component {
     });
   }; //sets a temporary password
 
-  autofill = event => {
+  autofill = () => {
     this.setState({
-      email: "melindanguyenn@gmail.com",
+      email: "melinda@gmail.com",
       password: "1234"
     });
   }; //an invisible button to auto populate the inputs with text

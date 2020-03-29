@@ -34,7 +34,11 @@ class Favorites extends Component {
             >
               {favorite.favorited_title}
             </a>
-            <FavoritesNotes notes_id={favorite.notes_id} favorited_id={favorite.favorited_id}/>
+            <FavoritesNotes
+              notes_id={favorite.notes_id}
+              notes={favorite.notes}
+              favorited_id={favorite.favorited_id}
+            />
             <br></br>
           </li>
         ))}

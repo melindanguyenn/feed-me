@@ -79,9 +79,9 @@ function* addFavoriteRecipeNotes(action) {
 } //hardcode favorite_id as the next one (+1), if none set to 1
 
 function* editFavoriteRecipeNotes(action) {
-  console.log("editing note", action.payload);
+  console.log("updating note", action.data, action.payload);
   let notesDto = {
-    id: 31,
+    id: action.data,
     notes: action.payload
   };
   yield axios.put(`api/Notes/`, notesDto);
@@ -91,7 +91,7 @@ function* editFavoriteRecipeNotes(action) {
 
 function* deleteFavoriteRecipeNotes(action) {
   console.log("deleting note");
-  yield axios.delete(`api/Notes/53`);
+  yield axios.delete(`api/Notes/${action.payload}`);
   console.log("note deleted");
 } //hardcode the note's id to delete, if none set to 1
 
