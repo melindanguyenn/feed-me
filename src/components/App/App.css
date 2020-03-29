@@ -41,7 +41,7 @@
   list-style-type: none;
   display: inline-block;
   margin: 1em;
-  opacity: .75;
+  opacity: 0.75;
   border: white;
 }
 
@@ -50,32 +50,34 @@
   display: inline-block;
   margin: 1em;
   opacity: 1;
-  border:1px black 350 350;
+  border: 1px black 350 350;
 }
 
 .signUpLogin {
   border: hidden;
+  outline: 0;
   font-size: medium;
   color: blue;
 }
 
 .favoriteButton {
   border: none;
-  outline:0;
+  outline: 0;
 }
 .autofill {
   border: none;
-  outline:0;
+  outline: 0;
   font-size: 16px;
 }
 .listItems {
   border: none;
 }
 
-.itemList, .listFavorites {
+.itemList,
+.listFavorites {
   list-style-type: none;
 }
 
-.recipeDetails{
+.recipeDetails {
   margin: 50px 100px;
 }
