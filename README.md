@@ -37,15 +37,9 @@ You'll also need an API Key from spoonacular [https://spoonacular.com/food-api] 
 
 ## Technologies Used
 
-- Javascript
+- React
 - C#
 - Dapper
-- React
-- Redux
-- Sagas
 - PostgreSQL
 - CSS
-- Nodemon
 - BootStrap
-
-
