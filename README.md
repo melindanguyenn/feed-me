@@ -20,7 +20,8 @@ CREATE TABLE "user" (
 
 CREATE TABLE "favorited" (
 "id" SERIAL PRIMARY KEY,
-"favorited_url" VARCHAR NOT NULL,
+"recipe_id" INT NOT NULL,
+"favorited_title" VARCHAR (50) NOT NULL,
 "user_id" INT REFERENCES "user"
 );
 
@@ -45,5 +46,6 @@ You'll also need an API Key from spoonacular [https://spoonacular.com/food-api] 
 - PostgreSQL
 - CSS
 - Nodemon
+- BootStrap
 
 
