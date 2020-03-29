@@ -8,7 +8,7 @@ CREATE TABLE "user" (
 
 CREATE TABLE "favorited" (
 "id" SERIAL PRIMARY KEY,
-"favorited_url" VARCHAR NOT NULL,
+"favorited_id" VARCHAR NOT NULL,
 "user_id" INT REFERENCES "user"
 );
 

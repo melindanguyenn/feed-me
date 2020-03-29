@@ -60,6 +60,8 @@ class Home extends Component {
   render() {
     return (
       <div className="ingredientList">
+        <h2>Let's find your next meal!</h2>
+        <p>Add an ingredient below to get started!</p>
         <input
           onChange={this.typeIngredient}
           value={this.state.temp}

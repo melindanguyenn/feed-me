@@ -1,6 +1,5 @@
 # FeedMe Solo Project
 
-
 ## Description
 
 This is a web application created to help find a recipe when you're on a budget or in a 'struggle meal' situation. Users will be able to find a recipe based on ingredients they currently have on hand. They'll be able add and edit notes to their favorite recipes. Users are required to have an account in order to favorite recipes. By logging in, they can view all recipes they've favorited and edit their account.
@@ -20,7 +19,7 @@ CREATE TABLE "user" (
 
 CREATE TABLE "favorited" (
 "id" SERIAL PRIMARY KEY,
-"favorited_url" VARCHAR NOT NULL,
+"favorited_id" VARCHAR NOT NULL,
 "user_id" INT REFERENCES "user"
 );
 
@@ -45,5 +44,3 @@ You'll also need an API Key from spoonacular [https://spoonacular.com/food-api] 
 - PostgreSQL
 - CSS
 - Nodemon
-
-

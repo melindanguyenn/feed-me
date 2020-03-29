@@ -21,17 +21,16 @@ namespace FeedMe.API.Controllers
       /// <summary>
       /// update note by id
       /// </summary>
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]string updatedNote)
+        [HttpPut]
+        public IActionResult Put([FromBody]NotesDto notesDto)
         {
             try
             {
-
-                _notesRepository.Update(id, updatedNote);
+                _notesRepository.Update(notesDto.id, notesDto.notes);
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok();
@@ -50,7 +49,7 @@ namespace FeedMe.API.Controllers
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok();
@@ -74,7 +73,7 @@ namespace FeedMe.API.Controllers
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok();
@@ -110,7 +109,7 @@ namespace FeedMe.API.Controllers
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok();

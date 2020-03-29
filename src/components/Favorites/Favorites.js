@@ -3,15 +3,15 @@ import { connect } from "react-redux";
 import FavoritesNotes from "../FavoritesNotes/FavoritesNotes";
 
 class Favorites extends Component {
-  // componentDidMount() {
-  //   this.getFavorites();
-  // }
+  componentDidMount() {
+    this.getFavorites();
+  }
 
-  // getFavorites() {
-  //   this.props.dispatch({
-  //     type: "FETCH_FAVORITES"
-  //   })
-  // }
+  getFavorites() {
+    this.props.dispatch({
+      type: "FETCH_FAVORITES"
+    });
+  }
 
   goToRecipe = event => {
     console.log("fav recipe clicked", event.target.id);
@@ -25,12 +25,17 @@ class Favorites extends Component {
     return (
       <div>
         <h2>Your favorite recipes!</h2>
-        {this.props.id.map(id => (
-          <li key={id} className="listFavorites">
-            <a href="#/recipe" onClick={this.goToRecipe} id={id}>
-              {this.props.summary.title}
+        {this.props.favorites.map(favorite => (
+          <li key={favorite.favorited_id} className="listFavorites">
+            <a
+              href="#/recipe"
+              onClick={this.goToRecipe}
+              id={favorite.recipe_id}
+            >
+              {favorite.favorited_title}
             </a>
-            <FavoritesNotes id={this.props.id} />
+            <FavoritesNotes notes_id={favorite.notes_id} />
+            <br></br>
           </li>
         ))}
       </div>
@@ -42,8 +47,7 @@ class Favorites extends Component {
 
 const getStore = reduxState => ({
   reduxState,
-  id: reduxState.favoriteRecipes,
-  summary: reduxState.recipeSummary
+  favorites: reduxState.fetchFavorites
 }); //accessing stores in index.js to get back search results, creating shortcut for accessing store
 
 export default connect(getStore)(Favorites);

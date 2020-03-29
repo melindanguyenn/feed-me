@@ -4,7 +4,7 @@
         <name>FeedMe.API</name>
     </assembly>
     <members>
-        <member name="M:FeedMe.API.Controllers.NotesController.Put(System.Int32,System.String)">
+        <member name="M:FeedMe.API.Controllers.NotesController.Put(FeedMe.API.Models.ControllerDto.NotesDto)">
             <summary>
             update note by id
             </summary>

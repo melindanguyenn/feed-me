@@ -27,14 +27,14 @@ namespace FeedMe.API.Controllers
         public IActionResult Get(int userId)
         {
             var favorites = new List<Repository.Models.FavoriteModel>();
-            
+
             try
             {
-              favorites = _favoriteRepository.Select(userId).ToList();    
+                favorites = _favoriteRepository.Select(userId).ToList();
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok(favorites);
@@ -49,20 +49,21 @@ namespace FeedMe.API.Controllers
                 //var fave = new FavoriteModel()
                 //{
                 //    id = favoriteDto.Id,
-                //    favorited_url = favoriteDto.FavoritedUrl,
+                //    favorited_id = favoriteDto.FavoritedUrl,
                 //    user_id = favoriteDto.UserId
                 //};
 
                 var favoriteModel = new FavoriteModel();
                 favoriteModel.id = favoriteDto.Id;
-                favoriteModel.favorited_url = favoriteDto.FavoritedUrl;
+                favoriteModel.recipe_id = favoriteDto.RecipeId;
+                favoriteModel.favorited_title = favoriteDto.FavoriteTitle;
                 favoriteModel.user_id = favoriteDto.UserId;
 
                 _favoriteRepository.Insert(favoriteModel);
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok();
@@ -78,7 +79,7 @@ namespace FeedMe.API.Controllers
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok();
@@ -94,15 +95,12 @@ namespace FeedMe.API.Controllers
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok();
         }
 
-        private void HandleError(Exception ex)
-        {
-            throw new Exception(ex.Message);
-        }
+
     }
 }

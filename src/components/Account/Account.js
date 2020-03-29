@@ -29,6 +29,12 @@ class Account extends Component {
     });
   }; //sets a temporary password
 
+  autofill = event => {
+    this.setState({
+      email: "melindanguyenn@gmail.com",
+      password: "1234"
+    })
+  }
   render() {
     return (
       <div>
@@ -37,13 +43,13 @@ class Account extends Component {
             <h1>Login</h1>
             <form onSubmit={this.logUserIn}>
               <label>
-                Email:
-                <input onChange={this.setEmail} />
+              <button className="autofill" onClick={this.autofill}>Email:</button>
+                <input onChange={this.setEmail} value={this.state.email}/>
               </label>
               <br></br>
               <label>
                 Password:
-                <input onChange={this.setPassword} />
+                <input onChange={this.setPassword} value={this.state.password}/>
               </label>
               <br></br>
               <input type="submit" value="Login" />

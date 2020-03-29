@@ -39,7 +39,7 @@ namespace FeedMe.API.Controllers
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok(user);
@@ -58,7 +58,7 @@ namespace FeedMe.API.Controllers
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok(user);
@@ -80,7 +80,7 @@ namespace FeedMe.API.Controllers
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok();
@@ -95,7 +95,7 @@ namespace FeedMe.API.Controllers
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok();
@@ -110,15 +110,11 @@ namespace FeedMe.API.Controllers
             }
             catch (Exception ex)
             {
-                HandleError(ex);
+                return BadRequest(ex.Message);
             }
 
             return Ok();
         }
 
-        private void HandleError(Exception ex)
-        {
-            throw new Exception(ex.Message);
-        }
     }
 }

@@ -45,7 +45,7 @@ class FavoritesNotes extends Component {
       this.props.dispatch({
         type: "ADD_NOTE",
         payload: this.state.notes,
-        data: event.target.id
+        data: Number(event.target.id)
       });
     }
   }; // if notes is empty, alert to cancel and delete note
@@ -112,30 +112,30 @@ class FavoritesNotes extends Component {
                 {this.state.editingNotes ? (
                   <>
                     <textarea
-                      id={this.props.id}
+                      id={this.props.notes_id}
                       onChange={this.writingNotes}
                       value={this.state.notes}
                     />
                     <br></br>
-                    <button onClick={this.editingNotes} id={this.props.id}>
+                    <button onClick={this.editingNotes} id={this.props.notes_id}>
                       Save
                     </button>
-                    <button onClick={this.cancelNotes} id={this.props.id}>
+                    <button onClick={this.cancelNotes} id={this.props.notes_id}>
                       Cancel
                     </button>
                   </>
                 ) : (
                   <>
                     <textarea
-                      id={this.props.id}
+                      id={this.props.notes_id}
                       onChange={this.writingNotes}
                       value={this.state.notes}
                     />
                     <br></br>
-                    <button onClick={this.saveNotes} id={this.props.id}>
+                    <button onClick={this.saveNotes} id={this.props.notes_id}>
                       Save
                     </button>
-                    <button onClick={this.cancelNotes} id={this.props.id}>
+                    <button onClick={this.cancelNotes} id={this.props.notes_id}>
                       Cancel
                     </button>
                   </>
@@ -145,18 +145,19 @@ class FavoritesNotes extends Component {
               <>
                 <h4>Notes:</h4>
                 <p>{this.state.notes}</p>
-                <button onClick={this.editNotes} id={this.props.id}>
+                <button onClick={this.editNotes} id={this.props.notes_id}>
                   Edit
                 </button>
-                <button onClick={this.deleteNotes} id={this.props.id}>
-                  Delete
+                <button onClick={this.deleteNotes} id={this.props.notes_id}>
+                    Delete
                 </button>
+                  <br></br>
               </>
             )}
           </>
         ) : (
           <>
-            <button onClick={this.addNotes} id={this.props.id}>
+            <button onClick={this.addNotes} id={this.props.notes_id}>
               + Add Notes
             </button>
           </>

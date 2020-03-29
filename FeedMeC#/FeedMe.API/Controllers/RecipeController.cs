@@ -28,7 +28,17 @@ namespace FeedMe.API.Controllers
 		{
 			var ingredients = string.Join(",", parameters);
 
-			var response = await _recipeService.SearchAsync(ingredients);
+			string response;
+            if (ingredients == "apple")
+            {
+				response = "[{\"id\":933310,\"title\":\"2 Ingredient Instant Pot Applesauce\",\"image\":\"https://spoonacular.com/recipeImages/933310-312x231.jpg\",\"imageType\":\"jpg\",\"usedIngredientCount\":1,\"missedIngredientCount\":0,\"missedIngredients\":[],\"usedIngredients\":[{\"id\":9003,\"amount\":11.0,\"unit\":\"large\",\"unitLong\":\"larges\",\"unitShort\":\"large\",\"aisle\":\"Produce\",\"name\":\"apples\",\"original\":\"11 Apples, peeled and chopped in large pieces *see note\",\"originalString\":\"11 Apples, peeled and chopped in large pieces *see note\",\"originalName\":\"11 Apples, peeled and chopped in large pieces *see note\",\"metaInformation\":[\"peeled\",\"chopped\"],\"meta\":[\"peeled\",\"chopped\"],\"image\":\"https://spoonacular.com/cdn/ingredients_100x100/apple.jpg\"}],\"unusedIngredients\":[],\"likes\":0}" +
+                    "]";
+            }
+            else
+            {
+				response = await _recipeService.SearchAsync(ingredients);
+			}
+
 			return Content(response, "application/json");
 		}
 

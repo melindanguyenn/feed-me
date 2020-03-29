@@ -39,7 +39,7 @@ namespace FeedMe.API
 			services.AddScoped<IUserRepository, UserRepository>();
 			services.AddScoped<IFavoriteRepository, FavoriteRepository>();
 			services.AddScoped<INotesRepository, NotesRepository>();
-
+			services.AddScoped<IFavoriteNotesRepository, FavoriteNotesRepository>();
 			services.AddHttpClient<IRecipeService, RecipeService>();
 			services.AddScoped<IAuthenticateService, AuthenticateService>();
 
