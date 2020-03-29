@@ -28,7 +28,8 @@ namespace FeedMe.Repository.PostgreSQL
                 "FROM favorited LEFT JOIN notes " +
                      "ON favorited.id = notes.favorited_id " +
                 "WHERE " +
-                    "favorited.user_id = @user_id; ";
+                    "favorited.user_id = @user_id " +
+                "ORDER BY favorited_id DESC; ";
 
             var parameters = new { user_id };
 

@@ -29,15 +29,22 @@ function* searchRecipes(action) {
 
 function* getRecipe(action) {
   console.log("fetching recipe with id of", action.payload);
-  const results = yield axios.get(`/api/recipe/${action.payload}`);
-  console.log("recipedetails", results.data.ingredients.ingredients);
   yield put({ type: "RECIPE_ID", payload: action.payload });
-  yield put({ type: "RECIPE_SUMMARY", payload: results.data.summary });
+
+  const summary = yield axios.get(`/api/recipe/summary/${action.payload}`);
+  console.log('summary', summary.data);
+  yield put({ type: "RECIPE_SUMMARY", payload: summary.data });
+
+  const ingredients = yield axios.get(`/api/recipe/ingredients/${action.payload}`);
+  console.log('ingredients', ingredients.data);
   yield put({
     type: "RECIPE_INGREDIENTS",
-    payload: results.data.ingredients.ingredients
+    payload: ingredients.data.ingredients
   });
-  yield put({ type: "RECIPE_DIRECTIONS", payload: results.data.directions });
+
+  const directions = yield axios.get(`/api/recipe/directions/${action.payload}`);
+  console.log('directions', directions.data);
+  yield put({ type: "RECIPE_DIRECTIONS", payload: directions.data });
 } // getting recipe details from server and sending it to recipeDetails
 
 function* favoriteRecipe(action) {

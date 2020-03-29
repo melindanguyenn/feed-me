@@ -14,7 +14,7 @@
         "outputPath": "/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/melindanguyen/.nuget/NuGet/NuGet.Config"
+          "/Users/melindanguyen/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"

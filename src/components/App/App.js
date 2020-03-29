@@ -6,6 +6,7 @@ import Home from "../Home/Home";
 import RecipeClicked from "../RecipeClicked/RecipeClicked";
 import Favorites from "../Favorites/Favorites";
 import Account from "../Account/Account";
+import Footer from "../Footer/Footer";
 
 class App extends Component {
   render() {
@@ -17,7 +18,8 @@ class App extends Component {
           <Route exact path="/recipe" component={RecipeClicked} />
           <Route exact path="/favorites" component={Favorites} />
           <Route exact path="/account" component={Account} />
-          <Route render={() => <h1>404 - Page not found!</h1>} />
+          {/* <Route render={() => <h1>404 - Page not found!</h1>} /> */}
+          {/* <Footer /> */}
         </div>
       </Router>
     );

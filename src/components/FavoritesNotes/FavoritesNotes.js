@@ -45,7 +45,7 @@ class FavoritesNotes extends Component {
       this.props.dispatch({
         type: "ADD_NOTE",
         payload: this.state.notes,
-        data: Number(event.target.id)
+        data: Number(event.target.parentElement.id)
       });
     }
   }; // if notes is empty, alert to cancel and delete note
@@ -66,7 +66,7 @@ class FavoritesNotes extends Component {
       this.props.dispatch({
         type: "EDIT_NOTE",
         payload: this.state.notes,
-        data: event.target.id
+        data: event.target.notes_id
       });
     }
   }; //if note field is left empty, alert to delete instead
@@ -103,7 +103,7 @@ class FavoritesNotes extends Component {
   }; //when delete is clicked, state will be reset to its original position
   render() {
     return (
-      <div>
+      <div id={this.props.favorited_id}>
         {this.state.addingNotes ? (
           <>
             <br></br>
@@ -151,7 +151,10 @@ class FavoritesNotes extends Component {
                 <button onClick={this.editNotes} id={this.props.notes_id}>
                   Edit
                 </button>
-                <button onClick={this.deleteNotes} id={this.props.notes_id}>
+                <button
+                  onClick={this.deleteNotes}
+                  id={this.props.notes_id}
+                >
                   Delete
                 </button>
                 <br></br>

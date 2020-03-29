@@ -96,17 +96,9 @@ class RecipeClicked extends Component {
         <h4>Ingredients:</h4>
         {this.props.ingredients.map((ingredient, index) => (
           <li key={index}>
-            {ingredient.name}
-            {/* {ingredient.amount.map(amount =>
-              amount.us.map((amount, index) => (
-                <p key={index}>
-                  {amount.value} {amount.unit}
-                </p>
-              ))
-            )} */}
+            {ingredient.amount.us.value} {ingredient.amount.us.unit} {ingredient.name}
           </li>
         ))}
-        {/* {this.props.ingredients.map(ingredient => ingredient.amount.us.map((amount, index) => <p key={index}>{amount.value}</p>))} */}
         <h4>Instructions:</h4>
         {this.props.directions.map(steps =>
           steps.steps.map((step, index) => (
