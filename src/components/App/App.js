@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { HashRouter as Router, Route } from "react-router-dom";
-import Header from '../Header/Header';
+import Header from "../Header/Header";
 import Home from "../Home/Home";
 import RecipeClicked from "../RecipeClicked/RecipeClicked";
 import Favorites from "../Favorites/Favorites";
@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header/>
+          <Header />
           <Route exact path="/" component={Home} />
           <Route exact path="/recipe" component={RecipeClicked} />
           <Route exact path="/favorites" component={Favorites} />

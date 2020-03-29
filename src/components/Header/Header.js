@@ -91,6 +91,6 @@ class Header extends Component {
       </header>
     );
   }
-}//sourcing icon images from BootStrap
+} //sourcing icon images from BootStrap
 
 export default Header;

@@ -117,7 +117,10 @@ class FavoritesNotes extends Component {
                       value={this.state.notes}
                     />
                     <br></br>
-                    <button onClick={this.editingNotes} id={this.props.notes_id}>
+                    <button
+                      onClick={this.editingNotes}
+                      id={this.props.notes_id}
+                    >
                       Save
                     </button>
                     <button onClick={this.cancelNotes} id={this.props.notes_id}>
@@ -149,9 +152,9 @@ class FavoritesNotes extends Component {
                   Edit
                 </button>
                 <button onClick={this.deleteNotes} id={this.props.notes_id}>
-                    Delete
+                  Delete
                 </button>
-                  <br></br>
+                <br></br>
               </>
             )}
           </>

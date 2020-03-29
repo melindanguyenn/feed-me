@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class RecipeClicked extends Component {
   state = {
     isFavorited: false
-  };
+  }; //allows favorite icon to toggle what gets displayed
   favorite = event => {
     if (this.state.isFavorited === false) {
       this.setState({
@@ -28,7 +28,11 @@ class RecipeClicked extends Component {
         isFavorited: false
       });
     }
-  }; //sending the id of displayed recipe to be stored in database when favorite is clicked
+  }; //favorite button gets clicked then sets state to true to display other
+  //icon, clicking icon will send the recipe's title (event.target.value & event.target.parentElement.value)
+  //and id(event.target.id) to the database
+  //clicking the button again doesn/t do anything else yet besides resetting the
+  //state to false - making the icon toggle again
 
   render() {
     return (
@@ -114,7 +118,8 @@ class RecipeClicked extends Component {
       </div>
     );
   }
-}
+} //display recipe's name with an icon- where the user can favorite the recipe
+//map through the recipe's details to display instructions and ingredients
 const getStore = reduxState => ({
   reduxState,
   id: reduxState.recipeId,

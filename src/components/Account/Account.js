@@ -33,8 +33,8 @@ class Account extends Component {
     this.setState({
       email: "melindanguyenn@gmail.com",
       password: "1234"
-    })
-  }
+    });
+  }; //an invisible button to auto populate the inputs with text
   render() {
     return (
       <div>
@@ -43,13 +43,18 @@ class Account extends Component {
             <h1>Login</h1>
             <form onSubmit={this.logUserIn}>
               <label>
-              <button className="autofill" onClick={this.autofill}>Email:</button>
-                <input onChange={this.setEmail} value={this.state.email}/>
+                <button className="autofill" onClick={this.autofill}>
+                  Email:
+                </button>
+                <input onChange={this.setEmail} value={this.state.email} />
               </label>
               <br></br>
               <label>
                 Password:
-                <input onChange={this.setPassword} value={this.state.password}/>
+                <input
+                  onChange={this.setPassword}
+                  value={this.state.password}
+                />
               </label>
               <br></br>
               <input type="submit" value="Login" />
@@ -90,5 +95,6 @@ class Account extends Component {
   }
 } //toggles what gets displayed based on the userExists boolean
 // if true, show login; if false, show sign up
+//clicking email on the login option will autopopulate the text fields
 
 export default Account;

@@ -5,13 +5,13 @@ import FavoritesNotes from "../FavoritesNotes/FavoritesNotes";
 class Favorites extends Component {
   componentDidMount() {
     this.getFavorites();
-  }
+  } //loading all favorited recipes on page load
 
   getFavorites() {
     this.props.dispatch({
       type: "FETCH_FAVORITES"
     });
-  }
+  } //calling the generator function to display favorite recipes
 
   goToRecipe = event => {
     console.log("fav recipe clicked", event.target.id);
