@@ -12,7 +12,6 @@ class FavoritesNotes extends Component {
       type: "FETCH_FAVORITES"
     });
   } //calling the generator function to display favorite recipes
-
   addNotes = () => {
     console.log("add notes");
     this.setState({
@@ -20,15 +19,10 @@ class FavoritesNotes extends Component {
     });
   }; //user clicked add button to add a note, addingNotes will be true to display textarea
   editNotes = () => {
-let isEdit = this.state.notes === "" ? true : false;
-console.log("edit notes", this.state.notes, isEdit);
-
     this.setState({
       editingNotes: true
     });
-  }; // if notes are still an empty string, addingNotes will be false
-  // if notes is not an empty string, set has notes to true and editing notes to true
-  //editing notes will be set to true each time the edit button gets clicked to make it editable
+  }; //editing notes will be set to true each time the edit button gets clicked to make it editable
   saveNotes = event => {
     console.log(
       "saving notes",
@@ -73,7 +67,8 @@ console.log("edit notes", this.state.notes, isEdit);
       this.props.dispatch({
         type: "EDIT_NOTE",
         payload: this.state.notes,
-        data: Number(event.target.parentElement.id)
+        data: Number(event.target.id)
+
       });
     }
     this.getFavorites();

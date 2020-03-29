@@ -1,47 +1,23 @@
 ﻿<Properties StartupConfiguration="{AAE43855-D624-4BED-87F5-B5AB37C5E344}|Default">
   <MonoDevelop.Ide.ItemProperties.FeedMe.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FeedMe.API/App_Start/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FeedMe.API/Controllers/NotesController.cs">
     <Files>
-      <File FileName="FeedMe.Repository/PostgreSQL/FavoriteNotesRepository.cs" Line="25" Column="22" />
-      <File FileName="FeedMe.API/Models/ControllerDto/FavorriteDto.cs" />
-      <File FileName="FeedMe.API/Controllers/FavoriteController.cs" />
-      <File FileName="FeedMe.API/Controllers/FavoriteNotesController.cs" />
-      <File FileName="FeedMe.API/Controllers/RecipeController.cs" />
-      <File FileName="FeedMe.API/Controllers/DefaultController.cs" />
-      <File FileName="FeedMe.API/Models/ControllerDto/FavoriteNotesDto.cs" />
-      <File FileName="FeedMe.API/Models/ControllerDto/UserDto.cs" />
-      <File FileName="FeedMe.API/Models/RecipeModels/RecipeInformationModel.cs" />
-      <File FileName="FeedMe.API/appsettings.json" Line="16" Column="58" />
-      <File FileName="FeedMe.Repository/Dapper/NpgSqlService.cs" Line="33" Column="1" />
-      <File FileName="FeedMe.Repository/Dapper/IDapperService.cs" />
-      <File FileName="FeedMe.Repository/Interfaces/IFavoriteNotesRepository.cs" />
-      <File FileName="FeedMe.Repository/Interfaces/INotesRepository.cs" />
-      <File FileName="FeedMe.Repository/Interfaces/IFavoriteRepository.cs" />
-      <File FileName="FeedMe.Repository/Models/FavoriteModel.cs" />
-      <File FileName="FeedMe.API/HttpServices/IRecipeService.cs" />
-      <File FileName="FeedMe.API/HttpServices/RecipeService.cs" />
-      <File FileName="FeedMe.API/Controllers/NotesController.cs" Line="62" Column="58" />
-      <File FileName="FeedMe.API/Models/ControllerDto/NotesDto.cs" />
-      <File FileName="FeedMe.Repository/PostgreSQL/NotesRepository.cs" Line="36" Column="1" />
-      <File FileName="FeedMe.Repository/Models/NotesModel.cs" Line="1" Column="1" />
-      <File FileName="FeedMe.API/App_Start/Program.cs" Line="16" Column="1" />
-      <File FileName="FeedMe.API/App_Start/Program.cs" Line="16" Column="1" />
+      <File FileName="FeedMe.API/Controllers/RecipeController.cs" Line="85" Column="1" />
+      <File FileName="FeedMe.API/Controllers/NotesController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FeedMe" expanded="True">
             <Node name="FeedMe.API" expanded="True">
-              <Node name="App_Start" expanded="True">
-                <Node name="Program.cs" selected="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="NotesController.cs" selected="True" />
               </Node>
-              <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="ControllerDto" expanded="True" />
               </Node>
             </Node>
             <Node name="FeedMe.Repository" expanded="True">
-              <Node name="Dapper" expanded="True" />
               <Node name="Interfaces" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="PostgreSQL" expanded="True" />
@@ -57,7 +33,7 @@
     <BreakpointStore>
       <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/Models/ml7i3p87.k5r~" relfile="FeedMe.Repository/Models/ml7i3p87.k5r~" line="88" column="1" />
       <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.Repository/Models/h27pinba.oq8~" relfile="FeedMe.Repository/Models/h27pinba.oq8~" line="62" column="1" />
-      <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/Controllers/NotesController.cs" relfile="FeedMe.API/Controllers/NotesController.cs" line="76" column="1" />
+      <Breakpoint file="/Users/melindanguyen/Prime/tier3/feed-me/FeedMeC#/FeedMe.API/Controllers/NotesController.cs" relfile="FeedMe.API/Controllers/NotesController.cs" line="26" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
