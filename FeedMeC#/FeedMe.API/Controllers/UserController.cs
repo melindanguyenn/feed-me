@@ -72,7 +72,7 @@ namespace FeedMe.API.Controllers
                 var user = new Repository.Models.UserModel()
                 {
                     email = userDto.Email,
-                    password = userDto.Password
+                    password = _authenticateService.HashPassword(userDto.Password)
                 };
 
                 _userRepository.Insert(user);

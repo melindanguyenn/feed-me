@@ -33,10 +33,20 @@ namespace FeedMe.API.AuthenticationService
 
         public Api.Models.UserModel Authenticate(string email, string password)
         {
+            password = HashPassword(password);
             var dbUser = _userRepository.Select(new Repository.Models.UserModel() { email = email, password = password });
             if (dbUser == null) { return null; }
 
             return CreateUserToken(dbUser);
+        }
+
+        public string HashPassword(string password)
+        {
+            var salted = password + _secret;
+            byte[] data = Encoding.ASCII.GetBytes(salted);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            string passwordHash = Encoding.ASCII.GetString(data);
+            return passwordHash;
         }
 
         public Api.Models.UserModel Refreshtoken(int id, Guid refreshToken)

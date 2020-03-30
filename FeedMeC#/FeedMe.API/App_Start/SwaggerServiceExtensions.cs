@@ -12,6 +12,7 @@ namespace FeedMe.API
             {
                 c.SwaggerDoc("v1.0", new OpenApiInfo() { Title = "Feed Me v1.0", Version = "v1.0" });
 
+                #region Auth
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
                     Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
@@ -34,6 +35,8 @@ namespace FeedMe.API
                       new string[] { }
                     }
                 });
+                #endregion
+
             });
 
             return services;

@@ -24,6 +24,9 @@ namespace FeedMe.API.Controllers
         [HttpGet("{userId}")]
         public IActionResult Get(int userId)
         {
+
+            //var t = Request.Headers;
+
             var favoriteNotes = new List<FavoriteNotesModel>();
 
             try

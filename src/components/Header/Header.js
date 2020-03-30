@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Auth from "../Auth/Auth";
+import Auth from "../Axios/Axios";
 import { connect } from "react-redux";
 
 class Header extends Component {

@@ -11,6 +11,7 @@ namespace FeedMe.API.AuthenticationService
     {
         UserModel Authenticate(string username, string password);
         UserModel Refreshtoken(int id, Guid refreshToken);
+        string HashPassword(string password);
     }
    
 }

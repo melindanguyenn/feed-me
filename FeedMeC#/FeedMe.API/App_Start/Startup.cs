@@ -30,6 +30,7 @@ namespace FeedMe.API
 			//packages
 			services.AddSwaggerDocumentation();
 			services.AddJwtAuthentication(Configuration);
+
 			//interfaces and implementation
 			ConfigureDependencyInjection(services);
 		}
@@ -40,9 +41,9 @@ namespace FeedMe.API
 			services.AddScoped<IFavoriteRepository, FavoriteRepository>();
 			services.AddScoped<INotesRepository, NotesRepository>();
 			services.AddScoped<IFavoriteNotesRepository, FavoriteNotesRepository>();
+
 			services.AddHttpClient<IRecipeService, RecipeService>();
 			services.AddScoped<IAuthenticateService, AuthenticateService>();
-
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

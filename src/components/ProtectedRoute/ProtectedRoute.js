@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import Auth from "../Auth/Auth";
+import Auth from "../Axios/Axios";
 import {connect} from 'react-redux';
 import LoginPage from '../Account/Account';
 import RegisterPage from '../Account/Account';

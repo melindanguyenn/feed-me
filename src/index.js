@@ -47,7 +47,7 @@ function* getRecipe(action) {
   });
 
   const directions = yield axios.get(
-    `/api/recipe/directions/${action.payload}`
+    `/api/recipe/directions/${action.payload}`,
   );
   console.log("directions", directions.data);
   yield put({ type: "RECIPE_DIRECTIONS", payload: directions.data });
@@ -55,7 +55,7 @@ function* getRecipe(action) {
 
 function* favoriteRecipe(action) {
   console.log("sending recipe to DB", action.payload);
-  let userId = 1;
+  let userId = 24;
   let favoriteDto = {
     userId: userId,
     ...action.payload

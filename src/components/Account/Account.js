@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import  Auth  from "../Auth/Auth"
+import  Auth  from "../Axios/Axios"
 
 class Account extends Component {
   state = {
