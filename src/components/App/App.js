@@ -25,9 +25,9 @@ class App extends Component {
 
             <Route exact path="/account" component={Account} />
             <ProtectedRoute exact path="/favorites" component={Favorites} />
-
+            <ProtectedRoute exact path="/recipe" component={RecipeClicked} />
             <ProtectedRoute exact path="/" component={Home} />
-            <Route render={() => <h1>404</h1>} />
+            <Route render={() =><h1>404 - Page not found!</h1>} />
           </Switch>
           {/* <Switch></Switch>
           <ProtectedRoute exact path="/" component={Home} />

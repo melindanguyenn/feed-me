@@ -24,6 +24,7 @@ class Account extends Component {
       type: "LOGIN",
       payload: this.state
     });
+    this.props.history.push("/")
   };
   createUser = event => {
     event.preventDefault();
