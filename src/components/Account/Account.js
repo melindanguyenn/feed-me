@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import  Auth  from "../Auth/Auth"
 
 class Account extends Component {
   state = {
@@ -16,16 +18,29 @@ class Account extends Component {
       userExists: true
     });
   }; //sets userExists to true on click
+  logUserIn = event => {
+    console.log("logging in", this.state);
+    this.props.dispatch({
+      type: "LOGIN",
+      payload: this.state
+    });
+  };
+  createUser = event => {
+    event.preventDefault();
+    console.log("creating user",this.state);
+    this.props.dispatch({
+      type: "SIGNUP",
+      payload: this.state
+    })
+  };
   setEmail = event => {
-    console.log(event.target.value);
     this.setState({
-      tempEmail: event.target.value
+      email: event.target.value
     });
   }; //sets a temporary email
   setPassword = event => {
-    console.log(event.target.value);
     this.setState({
-      tempPassword: event.target.value
+      password: event.target.value
     });
   }; //sets a temporary password
 
@@ -41,7 +56,7 @@ class Account extends Component {
         {this.state.userExists ? (
           <>
             <h1>Login</h1>
-            <form onSubmit={this.logUserIn}>
+            <form onSubmit={this.logUserIn }>
               <label>
                 <button className="autofill" onClick={this.autofill}>
                   Email:
@@ -58,18 +73,18 @@ class Account extends Component {
               </label>
               <br></br>
               <input type="submit" value="Login" />
-              <p>
-                Don't have an account?
-                <button className="signUpLogin" onClick={this.signUp}>
-                  <u>Sign up!</u>
-                </button>
-              </p>
             </form>
+            <p>
+              Don't have an account?
+              <button className="signUpLogin" onClick={this.signUp}>
+                <u>Sign up!</u>
+              </button>
+            </p>
           </>
         ) : (
           <>
             <h1>Sign Up</h1>
-            <form onSubmit={this.logUserIn}>
+            <form onSubmit={this.createUser}>
               <label>
                 Email:
                 <input onChange={this.setEmail} />
@@ -81,13 +96,13 @@ class Account extends Component {
               </label>
               <br></br>
               <input type="submit" value="Sign Up" />
-              <p>
-                Already have an account?
-                <button className="signUpLogin" onClick={this.login}>
-                  <u>Login!</u>
-                </button>
-              </p>
             </form>
+            <p>
+              Already have an account?
+              <button className="signUpLogin" onClick={this.login}>
+                <u>Login!</u>
+              </button>
+            </p>
           </>
         )}
       </div>
@@ -96,5 +111,8 @@ class Account extends Component {
 } //toggles what gets displayed based on the userExists boolean
 // if true, show login; if false, show sign up
 //clicking email on the login option will autopopulate the text fields
+const getStore = reduxState => ({
+  reduxState,
+}); //accessing stores in index.js to get back search results, creating shortcut for accessing store
 
-export default Account;
+export default connect(getStore)(Account);

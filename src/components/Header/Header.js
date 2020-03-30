@@ -1,6 +1,13 @@
 import React, { Component } from "react";
+import Auth from "../Auth/Auth";
+import { connect } from "react-redux";
 
 class Header extends Component {
+  logout = ()=> {
+    this.props.dispatch({
+      type: "LOGOUT"
+    })
+  }
   render() {
     return (
       <header className="App-header">
@@ -87,10 +94,14 @@ class Header extends Component {
               />
             </svg>
           </a>
+          <a onClick={this.logout}>Logout</a>
         </div>
       </header>
     );
   }
 } //sourcing icon images from BootStrap
+const getStore = reduxState => ({
+  reduxState,
+}); //accessing stores in index.js to get back search results, creating shortcut for accessing store
 
-export default Header;
+export default connect(getStore) (Header);

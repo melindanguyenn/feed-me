@@ -18,6 +18,8 @@ function* rootSaga() {
   yield takeEvery("ADD_NOTE", addFavoriteRecipeNotes);
   yield takeEvery("EDIT_NOTE", editFavoriteRecipeNotes);
   yield takeEvery("DELETE_NOTE", deleteFavoriteRecipeNotes);
+  yield takeEvery("LOGIN", login);
+  yield takeEvery("SIGNUP", signup);
 } //button activates an action from a component, then runs the corresponding function
 function* searchRecipes(action) {
   console.log("in getRecipe", action.payload);
@@ -25,25 +27,29 @@ function* searchRecipes(action) {
   console.log("in getRecipe, results", results.data);
   yield put({ type: "GET_RECIPE", payload: results.data });
 } //funtion takes action.payload from app.js, sends it to server to fetch data
-//waits for data to return, then sends to where "GET_RECIPE" gets called (recipeReducer)
+//waits for data to return, then sends to where "GET_RECIPE" gets called (searchResults)
 
 function* getRecipe(action) {
   console.log("fetching recipe with id of", action.payload);
   yield put({ type: "RECIPE_ID", payload: action.payload });
 
   const summary = yield axios.get(`/api/recipe/summary/${action.payload}`);
-  console.log('summary', summary.data);
+  console.log("summary", summary.data);
   yield put({ type: "RECIPE_SUMMARY", payload: summary.data });
 
-  const ingredients = yield axios.get(`/api/recipe/ingredients/${action.payload}`);
-  console.log('ingredients', ingredients.data);
+  const ingredients = yield axios.get(
+    `/api/recipe/ingredients/${action.payload}`
+  );
+  console.log("ingredients", ingredients.data);
   yield put({
     type: "RECIPE_INGREDIENTS",
     payload: ingredients.data.ingredients
   });
 
-  const directions = yield axios.get(`/api/recipe/directions/${action.payload}`);
-  console.log('directions', directions.data);
+  const directions = yield axios.get(
+    `/api/recipe/directions/${action.payload}`
+  );
+  console.log("directions", directions.data);
   yield put({ type: "RECIPE_DIRECTIONS", payload: directions.data });
 } // getting recipe details from server and sending it to recipeDetails
 
@@ -73,7 +79,7 @@ function* addFavoriteRecipeNotes(action) {
     user_id: 1
   };
   console.log(notesDto);
-  
+
   yield axios.post(`api/notes`, notesDto);
   console.log("added note");
 } //hardcode favorite_id as the next one (+1), if none set to 1
@@ -94,6 +100,35 @@ function* deleteFavoriteRecipeNotes(action) {
   yield axios.delete(`api/Notes/${action.payload}`);
   console.log("note deleted");
 } //hardcode the note's id to delete, if none set to 1
+
+function* login(action) {
+  console.log("login for db", action.payload);
+  try {
+    const results = yield axios.post(`api/User/Login`, action.payload);
+    console.log("log in successful", results.data);
+    yield put({ type: "AUTH", payload: results.data });
+  } catch (error) {
+    console.log('Cannot Login', error);
+  }
+}
+
+function* signup(action) {
+  console.log("signup for db", action.payload);
+  const results = yield axios.post(`/api/User/Signup`, action.payload);
+  console.log("sign up successful", results.data);
+}
+
+
+const userContext = (state = [], action) => {
+  switch (action.type) {
+    case "AUTH":
+      return action.payload;
+    case "LOGOUT":
+      return state = {};
+    default:
+      return state;
+  }
+}
 
 const recipeNotes = (state = "", action) => {
   switch (action.type) {
@@ -145,7 +180,7 @@ const recipeId = (state = [], action) => {
       return state;
   }
 }; //stores directions from getRecipe until called upon
-const recipeReducer = (state = [], action) => {
+const searchResults = (state = [], action) => {
   switch (action.type) {
     case "GET_RECIPE":
       return action.payload;
@@ -157,17 +192,18 @@ const recipeReducer = (state = [], action) => {
 const sagaMiddleware = createSagaMiddleware();
 const storeInstance = createStore(
   combineReducers({
-    recipeReducer,
+    searchResults,
     recipeId,
     recipeSummary,
     recipeIngredients,
     recipeDirections,
     fetchFavorites,
-    recipeNotes
+    recipeNotes,
+    userContext
   }),
 
   applyMiddleware(sagaMiddleware)
-); //accesses store from recipeReducer and allows other components to use it
+); //accesses store from searchResults and allows other components to use it
 
 sagaMiddleware.run(rootSaga);
 

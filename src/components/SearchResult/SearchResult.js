@@ -14,7 +14,7 @@ class SearchResult extends Component {
     return (
       <div className="recipeList">
         <ul>
-          {this.props.reduxState.recipeReducer.map((recipe, index) => (
+          {this.props.reduxState.searchResults.map((recipe, index) => (
             <li key={index} id={index}>
               <a href="#/recipe" onClick={this.goToRecipe} id={recipe.id}>
                 <h4 id={recipe.id}>{recipe.title}</h4>
